@@ -5,7 +5,7 @@ footer {
     width: 100%; /* 宽度占满整个页面宽度 */
     background-color: transparent; /* 背景颜色为透明 */
     color: #fff; /* 文字颜色为白色 */
-    padding: 15px 0; /* 上下内边距为 15 像素，左右内边距为 0 */
+    padding: 10px 0; /* 上下内边距为 10 像素，左右内边距为 0 */
     text-align: center; /* 文字居中 */
     font-family: Arial, sans-serif; /* 使用 Arial 字体族 */
     position: fixed; /* 固定定位，使页脚固定在页面底部 */
@@ -19,6 +19,7 @@ footer {
   footer div {
     font-size: 14px; /* 字体大小为 14 像素 */
     line-height: 1.5; /* 行高为字体大小的 1.5 倍 */
+    margin: 0 10px; /* 设置左右外边距，避免内容紧贴屏幕边缘 */
   }
   
   /* 心电图图标样式 */
@@ -44,5 +45,15 @@ footer {
     }
     100% {
       transform: scale(1); /* 最终缩放比例为 1 */
+    }
+  }
+  
+  /* 响应式设计 */
+  @media (max-width: 768px) {
+    footer {
+      padding: 8px 0; /* 在小屏幕上减少上下内边距 */
+    }
+    footer div {
+      font-size: 12px; /* 在小屏幕上减小字体大小 */
     }
   }
