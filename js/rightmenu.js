@@ -94,10 +94,21 @@ rmf.copySelect = function () {
 
 //回到顶部
 rmf.scrollToTop = function () {
-    document.getElementsByClassName("menus_items")[1].setAttribute("style", "");
-    document.getElementById("name-container").setAttribute("style", "display:none");
-    btf.scrollToDest(0, 500);
-}
+    const menusItems = document.getElementsByClassName("menus_items");
+    if (menusItems.length > 1) {
+        menusItems[1].setAttribute("style", "");
+    }
+
+    const nameContainer = document.getElementById("name-container");
+    if (nameContainer) {
+        nameContainer.setAttribute("style", "display:none");
+    }
+
+    if (btf && typeof btf.scrollToDest === "function") {
+        btf.scrollToDest(0, 500);
+    }
+};
+
 
 document.body.addEventListener('touchmove', function () {
 
@@ -312,3 +323,4 @@ function changeMouseMode() {
         }, 300);
     }
 }
+
