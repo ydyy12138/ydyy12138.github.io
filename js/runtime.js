@@ -1,54 +1,31 @@
-const now = new Date();
-const startDate = new Date("08/08/2023 00:00:00");
-const earthStartDate = new Date("08/08/2023 00:00:00");
-const workBoard = document.getElementById("workboard");
-
-function formatTime(num) {
-  return num < 10 ? `0${num}` : num;
+var now = new Date();
+function createtime() {
+  // 当前时间
+  now.setTime(now.getTime() + 1000);
+  var start = new Date("08/01/2022 00:00:00"); // 旅行者1号开始计算的时间
+  var dis = Math.trunc(23400000000 + ((now - start) / 1000) * 17); // 距离=秒数*速度 记住转换毫秒
+  var unit = (dis / 149600000).toFixed(6);  // 天文单位
+  var grt = new Date("08/09/2022 00:00:00");	// 网站诞生时间
+  var days = (now - grt) / 1e3 / 60 / 60 / 24,
+    dnum = Math.floor(days),
+    hours = (now - grt) / 1e3 / 60 / 60 - 24 * dnum,
+    hnum = Math.floor(hours);
+  1 == String(hnum).length && (hnum = "0" + hnum);
+  var minutes = (now - grt) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
+    mnum = Math.floor(minutes);
+  1 == String(mnum).length && (mnum = "0" + mnum);
+  var seconds = (now - grt) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
+    snum = Math.round(seconds);
+  1 == String(snum).length && (snum = "0" + snum);
+  let currentTimeHtml = "";
+ (currentTimeHtml =
+  hnum < 18 && hnum >= 9
+  ? `<div style="font-size:13px;font-weight:bold">什么时候能够实现财富自由呀~<br>本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class="fas fa-heartbeat"></i> <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位 🚀</div>`
+  : `<div style="font-size:13px;font-weight:bold">下班了就该开开心心地玩耍~<br>本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class="fas fa-heartbeat"></i> <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位 🚀</div>`),
+document.getElementById("workboard") &&
+(document.getElementById("workboard").innerHTML = currentTimeHtml);
 }
-
-function getTimeElapsed() {
-  const timeDiff = now.getTime() - earthStartDate.getTime();
-  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-  return { days, hours, minutes, seconds };
-}
-
-function getVoyagerDistance() {
-  const timeDiff = now.getTime() - startDate.getTime();
-  const distanceInKm = Math.trunc(234e8 + (timeDiff / 1000) * 17);
-  const distanceInAU = (distanceInKm / 149600000).toFixed(6);
-  return { distanceInKm, distanceInAU };
-}
-
-function updateDisplay() {
-  now.setTime(now.getTime() + 1000); // Increment time by one second
-
-  const { days, hours, minutes, seconds } = getTimeElapsed();
-  const { distanceInKm, distanceInAU } = getVoyagerDistance();
-
-  const isWorkingHours = hours >= 9 && hours < 18;
-  const badgeTitle = isWorkingHours
-    ? "什么时候能够实现财富自由呀~"
-    : "下班了就该开开心心地玩耍~";
-
-  const timeStr = `${days} 天 ${formatTime(hours)} 小时 ${formatTime(minutes)} 分 ${formatTime(seconds)} 秒`;
-  const distanceStr = `旅行者 1 号当前距离地球 ${distanceInKm} 千米，约为 ${distanceInAU} 个天文单位 🚀`;
-
-  const content = `
-    <div style="font-size:13px;font-weight:bold">
-      ${badgeTitle} <br>
-      本站居然运行了 ${timeStr} <i id="heartbeat" class='fas fa-heartbeat'></i> 
-      <br>
-      ${distanceStr}
-    </div>
-  `;
-
-  if (workBoard) {
-    workBoard.innerHTML = content;
-  }
-}
-
-setInterval(updateDisplay, 1000);
+// 设置重复执行函数，周期1000ms
+setInterval(() => {
+  createtime();
+}, 1000);
