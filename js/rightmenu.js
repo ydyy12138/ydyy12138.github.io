@@ -109,11 +109,6 @@ rmf.scrollToTop = function () {
     }
 };
 
-
-document.body.addEventListener('touchmove', function () {
-
-}, { passive: false });
-
 function popupMenu() {
     window.oncontextmenu = function (event) {
         // if (event.ctrlKey) return true;
@@ -134,7 +129,7 @@ function popupMenu() {
         }
         var el = window.document.body;
         el = event.target;
-        var a = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/
+        var a = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/;
         if (a.test(window.getSelection().toString()) && el.tagName != "A") {
             $('#menu-too').show()
         }
@@ -212,6 +207,11 @@ function popupMenu() {
                     })
             }
         }
+        // 添加“随便逛逛”菜单项
+        $('#menu-random').show();
+        // 添加“昼夜切换”菜单项
+        $('#menu-toggle-theme').show();
+
         let pageX = event.clientX + 10;
         let pageY = event.clientY;
         let rmWidth = $('#rightMenu').width();
@@ -243,6 +243,8 @@ function popupMenu() {
         rmf.showRightMenu(false);
     });
 }
+
+// 确保 popupMenu 函数在页面加载后被调用
 if (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
     popupMenu()
 }
@@ -324,6 +326,37 @@ function changeMouseMode() {
     }
 }
 
+// 添加随机跳转函数
+function randomPost() {
+    // 获取文章 URL 列表，并确保其为数组类型
+    const postUrls = Array.isArray(window.postUrls) ? window.postUrls : [];
+
+    if (postUrls.length === 0) {
+        console.error('没有可用的文章 URL');
+        return;
+    }
+
+    try {
+        // 随机选择一个 URL
+        const randomIndex = Math.floor(Math.random() * postUrls.length);
+        const selectedUrl = postUrls[randomIndex];
+
+        // 跳转到选中的文章页面
+        window.location.href = selectedUrl;
+    } catch (error) {
+        console.error('跳转过程中发生错误:', error);
+    }
+}
+
+// 添加切换夜间模式函数
+function switchNightMode() {
+    const body = document.body;
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}
+
 // 防抖全局计时器
 let TT = null;    //time用来控制事件的触发
 // 防抖函数:fn->逻辑 time->防抖时间
@@ -331,7 +364,6 @@ function debounce(fn, time) {
     if (TT !== null) clearTimeout(TT);
     TT = setTimeout(fn, time);
 }
-
 
 // 复制提醒
 document.addEventListener("copy", function () {
@@ -350,4 +382,4 @@ document.addEventListener("copy", function () {
             }
         })
     }, 300);
-})
+});
