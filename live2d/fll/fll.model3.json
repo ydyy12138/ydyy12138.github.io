@@ -1,0 +1,1 @@
+{"Version":3,"FileReferences":{"Moc":"fll.moc3","Textures":["fll.4096/texture_00.png"],"Physics":"fll.physics3.json","DisplayInfo":"fll.cdi3.json"},"Groups":[{"Target":"Parameter","Name":"EyeBlink","Ids":[]},{"Target":"Parameter","Name":"LipSync","Ids":[]}]}
