@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/ydyy/4a17b156.html"/>
+      <url>/ydyy/4a17b156.html</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p><figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">$ hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello </span><br><span class="line">hello hello hello hello hello hello hello hello hello hello hello hello hello</span><br></pre></td></tr></table></figure><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">code_blocks:</span></span><br><span class="line">  <span class="comment"># Code block theme: darker / pale night / light / ocean / false</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">light</span></span><br><span class="line">  <span class="attr">macStyle:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Code block height limit (unit: px)</span></span><br><span class="line">  <span class="attr">height_limit:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">word_wrap:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Toolbar</span></span><br><span class="line">  <span class="attr">copy:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">language:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># true: shrink the code blocks | false: expand the code blocks | none: expand code blocks and hide the button</span></span><br><span class="line">  <span class="attr">shrink:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">fullpage:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 标签 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>new</title>
+      <link href="/ydyy/6be34445.html"/>
+      <url>/ydyy/6be34445.html</url>
+      
+        <content type="html"><![CDATA[<p><img src="/new/%E5%A4%B4%E5%83%8F.jpg"></p><div align=center class="aspect-ratio">    <iframe src="https://player.bilibili.com/player.html?aid=441249997&&page=1&as_wide=1&high_quality=1&danmaku=0"     scrolling="no"     border="0"     frameborder="no"     framespacing="0"     high_quality=1    danmaku=1     allowfullscreen="true">     </iframe></div><div id="aplayer-oSEOhviA" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="4895239160" data-server="netease" data-type="playlist" data-mode="random" data-autoplay="false" data-listmaxheight="340px" data-preload="auto" data-theme="#e3f2f5" data-volume="0.4" mutex="true"></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> new </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>测试</title>
+      <link href="/ydyy/9daba997.html"/>
+      <url>/ydyy/9daba997.html</url>
+      
+        <content type="html"><![CDATA[<p>00000<br><a href="https://www.bing.com/">https://www.bing.com/</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 测试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
