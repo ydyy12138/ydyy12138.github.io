@@ -25,7 +25,7 @@ function randomPost() {
     });
   }
   
-  fetch('/baidusitemap.xml')
+  fetch('/sitemap.xml')
     .then(res => {
       if (!res.ok) throw new Error('站点地图获取失败');
       return res.text();
