@@ -14,76 +14,21 @@ var observer = new MutationObserver(function(mutations) {
   }
 });
 
-/* 随便逛逛功能 - 随机跳转到站内其他页面 */
+/* 随便逛逛 start */
+// 随便逛逛
+// 发现有时会和当前页面重复，加一个判断
 function randomPost() {
-  // 显示加载提示
-  if (typeof Snackbar !== 'undefined') {
-    Snackbar.show({
-      text: '正在获取页面列表...',
-      pos: 'top-center',
-      showAction: false
-    });
-  }
-  
-  fetch('/sitemap.xml')
-    .then(res => {
-      if (!res.ok) throw new Error('站点地图获取失败');
-      return res.text();
-    })
-    .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
-    .then(data => {
-      const urls = data.querySelectorAll('url loc');
-      
-      // 如果没有找到URL，抛出错误
-      if (!urls || urls.length === 0) {
-        throw new Error('没有找到可用的页面URL');
-      }
-      
-      // 获取所有非当前页面的URL
-      const otherUrls = Array.from(urls)
-        .map(node => node.innerHTML)
-        .filter(url => url !== location.href);
-      
-      // 如果没有其他页面可跳转，显示提示
-      if (otherUrls.length === 0) {
-        if (typeof Snackbar !== 'undefined') {
-          Snackbar.show({
-            text: '站点只有这一个页面哦',
-            pos: 'top-center',
-            showAction: false
-          });
-        } else {
-          alert('站点只有这一个页面哦');
-        }
-        return;
-      }
-      
-      // 随机选择一个非当前页面的URL
-      const randomUrl = otherUrls[Math.floor(Math.random() * otherUrls.length)];
-      
-      // 使用pjax跳转（如果存在），否则使用普通跳转
-      if (window.pjax) {
-        pjax.loadUrl(randomUrl);
-      } else {
-        location.href = randomUrl;
-      }
-    })
-    .catch(error => {
-      console.error('随机访问页面出错:', error);
-      
-      // 显示错误提示
-      if (typeof Snackbar !== 'undefined') {
-        Snackbar.show({
-          text: '获取页面列表失败，请稍后再试',
-          pos: 'top-center',
-          showAction: false
-        });
-      } else {
-        alert('获取页面列表失败，请稍后再试');
-      }
-    });
+  fetch('/sitemap.xml').then(res => res.text()).then(str => (new window.DOMParser()).parseFromString(str, "text/xml")).then(data => {
+    let ls = data.querySelectorAll('url loc');
+    while (true) {
+      let url = ls[Math.floor(Math.random() * ls.length)].innerHTML;
+      if (location.href == url) continue;
+      location.href = url;
+      return;
+    }
+  })
 }
-
+/* 随便逛逛 end */
 
 
 // 动态标题
